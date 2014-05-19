@@ -4,6 +4,7 @@
   "authors": [
     "Freehaha <freehaha@gmail.com>"
   ],
+  "main": "example.html",
   "license": "MIT",
   "private": true,
   "ignore": [
