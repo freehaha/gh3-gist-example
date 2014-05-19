@@ -17,6 +17,32 @@
   </header>
   <div id="main" ng-app="githubEx">
     <div ng-controller="MainCtrl">
+      <button type="button" ng-click="toggleSource()">Toggle source</button>
+      <pre ng-show="viewSource">
+        $scope.getFiles = function() {
+          var gist = new Gh3.Gist({id: $scope.gistId});
+          $scope.files = [];
+
+          gist.fetchContents(function(err, res) {
+            if(err) {
+              $scope.$apply(function() {
+                $scope.result = err.message;
+              });
+            } else {
+              $scope.$apply(function() {
+                $scope.result = '';
+              });
+            }
+
+            gist.eachFile(function(file) {
+              $scope.$apply(function() {
+                $scope.files.push(file);
+              });
+            });
+          });
+        };
+      </pre>
+      <br/>
       <input type="text" ng-model="gistId">
       <button type="button" ng-click="getFiles()">Get Files</button>
       <br>

@@ -1,9 +1,13 @@
 angular.module('githubEx', [])
   .controller('MainCtrl', ['$scope',
     function($scope) {
+      $scope.viewSource = false;
       $scope.gistId = '4992826';
       $scope.result = '';
       $scope.files = [];
+      $scope.toggleSource = function() {
+        $scope.viewSource = !$scope.viewSource;
+      };
       $scope.getFiles = function() {
         var gist = new Gh3.Gist({id: $scope.gistId});
         $scope.files = [];
