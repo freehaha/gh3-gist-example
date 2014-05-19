@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Github Gist example</title>
+  <meta charset="utf-8" />
+  <!-- bower components -->
+  <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="bower_components/underscore/underscore.js" type="text/javascript" charset="utf-8"></script>
+  <script src="bower_components/angular/angular.js" type="text/javascript" charset="utf-8"></script>
+  <script src="bower_components/gh3/gh3.js" type="text/javascript" charset="utf-8"></script>
+  <!-- bower components END-->
+  <script src="scripts/app.js" type="text/javascript" charset="utf-8"> </script>
+</head>
+<body>
+  <header>
+    
+  </header>
+  <div id="main" ng-app="githubEx">
+    <div ng-controller="MainCtrl">
+      <input type="text" ng-model="gistId">
+      <button type="button" ng-click="getFiles()">Get Files</button>
+      <br>
+      <div>
+        {{result}}
+        <ul>
+          <li ng-repeat="file in files">
+            {{file.filename}}
+            <pre ng-bind="file.content">
+            </pre>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer>
+    
+  </footer>
+</body>
+</html>
